@@ -15,6 +15,7 @@ public class Campfire : MonoBehaviour
     [Header("UI костра")]
     public Slider burnSlider; // ссылка на слайдер
     public GameObject fireEffect; // particle system (огонь)
+    public Light fireLight; // Point Light для костра
 
     [Header("Подкидывание дров")]
     public KeyCode addFuelKey = KeyCode.E;  // клавиша подкидывания
@@ -42,6 +43,10 @@ public class Campfire : MonoBehaviour
             burnSlider.maxValue = maxBurnTime;
             burnSlider.value = currentBurnTime;
         }
+
+        // Изначально включаем свет, если костёр активен
+        if (fireLight != null)
+            fireLight.intensity = currentBurnTime > 0 ? 5f : 0f;
     }
 
     void Update()
@@ -53,8 +58,17 @@ public class Campfire : MonoBehaviour
         if (burnSlider != null)
             burnSlider.value = currentBurnTime;
 
+        // Плавная интенсивность Point Light
+        if (fireLight != null)
+        {
+            fireLight.intensity = Mathf.Lerp(0f, 5f, Mathf.Clamp01(currentBurnTime / maxBurnTime));
+        }
+
+        // Если костёр потух
         if (currentBurnTime <= 0)
+        {
             Extinguish();
+        }
 
         // Проверяем взаимодействие с игроком
         if (player != null && Vector3.Distance(player.position, transform.position) <= interactionRadius)
@@ -75,7 +89,7 @@ public class Campfire : MonoBehaviour
 
         if (playerHealth != null && playerStats != null)
         {
-            playerStats.SetNearCampfire(true); // <-- новая строка
+            playerStats.SetNearCampfire(true);
 
             timer += Time.deltaTime;
             if (timer >= tickRate)
@@ -95,9 +109,8 @@ public class Campfire : MonoBehaviour
     {
         PlayerStats playerStats = other.GetComponent<PlayerStats>();
         if (playerStats != null)
-            playerStats.SetNearCampfire(false); // <-- когда вышел из зоны
+            playerStats.SetNearCampfire(false);
     }
-
 
     void TryAddFuel()
     {
@@ -111,7 +124,7 @@ public class Campfire : MonoBehaviour
         if (playerInventory.resources.ContainsKey("Wood") && playerInventory.resources["Wood"] > 0)
         {
             playerInventory.resources["Wood"] -= 1; // -1 дерево
-            playerInventory.UpdateUI(); // моментальное обновление UI
+            playerInventory.UpdateUI(); // обновляем UI
             AddFuel(fuelAddAmount);
             Debug.Log("Костер: добавлено 1 дерево, +20 секунд горения.");
         }
@@ -126,6 +139,9 @@ public class Campfire : MonoBehaviour
         isActive = false;
         if (fireEffect != null)
             fireEffect.SetActive(false);
+        if (fireLight != null)
+            fireLight.intensity = 0f;
+
         Debug.Log("Костер потух!");
     }
 
@@ -138,11 +154,14 @@ public class Campfire : MonoBehaviour
         if (burnSlider != null)
             burnSlider.value = currentBurnTime;
 
+        // Если костёр был потухший — разжигаем его заново
         if (!isActive)
         {
             isActive = true;
             if (fireEffect != null)
                 fireEffect.SetActive(true);
+            if (fireLight != null)
+                fireLight.intensity = Mathf.Lerp(0f, 5f, Mathf.Clamp01(currentBurnTime / maxBurnTime));
         }
     }
 

@@ -4,7 +4,7 @@ using TMPro;
 public class DayNightCycle : MonoBehaviour
 {
     [Header("Настройки цикла")]
-    public float fullDayLength = 600f; // 10 минут = 1 полный цикл
+    public float fullDayLength = 600f; // 10 минут = полный день
     [Range(0, 1)] public float currentTime = 0f; // 0 = рассвет, 0.5 = ночь
     public Light sunLight;
     public Gradient lightColor;
@@ -12,7 +12,7 @@ public class DayNightCycle : MonoBehaviour
 
     [Header("Ночь и день")]
     public bool isNight = false;
-    public float nightStart = 0.45f;
+    public float nightStart = 0.50f;
     public float nightEnd = 0.75f;
 
     [Header("UI")]
@@ -26,19 +26,21 @@ public class DayNightCycle : MonoBehaviour
 
     void Update()
     {
-        // Идёт время
+        // Продвигаем время
         currentTime += Time.deltaTime / fullDayLength;
         if (currentTime >= 1f) currentTime = 0f;
 
-        // Изменяем свет
+        // Настройка света
         if (sunLight != null)
         {
             sunLight.color = lightColor.Evaluate(currentTime);
             sunLight.intensity = lightIntensity.Evaluate(currentTime);
-            sunLight.transform.rotation = Quaternion.Euler(new Vector3((currentTime * 360f) - 90f, 170f, 0));
+
+            // Солнце движется по небу: -90° -> 270° по X
+            sunLight.transform.rotation = Quaternion.Euler(new Vector3((currentTime * 360f) - 90f, 0f, 0f));
         }
 
-        // Проверяем переход день/ночь
+        // Проверка смены дня и ночи
         bool nowNight = (currentTime >= nightStart && currentTime < nightEnd);
         if (nowNight && !isNight)
         {

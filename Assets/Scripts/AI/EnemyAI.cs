@@ -2,18 +2,32 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Параметры AI")]
     public Transform player;
     public float speed = 3f;
     public float attackRange = 2f;
-
-
     public int attackDamage = 10;
-    private float attackCooldown = 1.5f;
+    public float attackCooldown = 1.5f;
+
+    [HideInInspector] public bool isActive = true;
     private float lastAttackTime;
+
+    void OnEnable()
+    {
+        DayNightCycle.OnNightStart += ActivateAI;
+        DayNightCycle.OnDayStart += DeactivateAI;
+    }
+
+    void OnDisable()
+    {
+        DayNightCycle.OnNightStart -= ActivateAI;
+        DayNightCycle.OnDayStart -= DeactivateAI;
+    }
 
     void Update()
     {
-        if (player == null) return;
+        if (!isActive || player == null)
+            return;
 
         float distance = Vector3.Distance(transform.position, player.position);
 
@@ -24,17 +38,28 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            if (Time.time - lastAttackTime > attackCooldown)
+            if (Time.time - lastAttackTime >= attackCooldown)
             {
                 PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(attackDamage);
-                    Debug.Log("Игрок получил урон: " + attackDamage);
+                    Debug.Log($"Игрок получил урон: {attackDamage}");
                 }
                 lastAttackTime = Time.time;
             }
         }
     }
 
+    void ActivateAI()
+    {
+        isActive = true;
+        Debug.Log($"{gameObject.name} активирован (ночь)");
+    }
+
+    void DeactivateAI()
+    {
+        isActive = false;
+        Debug.Log($"{gameObject.name} отключён (день)");
+    }
 }
