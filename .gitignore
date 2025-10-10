@@ -1,0 +1,20 @@
+# Unity временные папки
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+UserSettings/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.unitypackage
+
+# OS файлы
+.DS_Store
+Thumbs.db
