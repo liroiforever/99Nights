@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8227661609381405471}
   - component: {fileID: 3511855600515571785}
+  - component: {fileID: -8176655123394154912}
+  - component: {fileID: 6113399239946751396}
   m_Layer: 0
   m_Name: "\u0414\u0435\u0440\u0435\u0432\u044C\u044F_1"
   m_TagString: Untagged
@@ -84,3 +86,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &-8176655123394154912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365251260017677668}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7946658, y: 9.16, z: 0.2}
+  m_Center: {x: -0.00000023841858, y: 4.58, z: 0}
+--- !u!114 &6113399239946751396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365251260017677668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c66284df8a10a4f9706e9536f9a719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: Wood
+  amount: 0
+  dropPrefab: {fileID: 3382428018510911383, guid: 51845611e297e004db70e7eee5a21e35,
+    type: 3}
+  maxHealth: 100
+  intactSprite: {fileID: 756571442, guid: 649197f8788f6aa4c8fd9041d8c80dd3, type: 3}
+  damagedSprite: {fileID: -654833430, guid: d747c88200fa7e14a8ad0bd6a1e43f5c, type: 3}
+  heavilyDamagedSprite: {fileID: -1044608892, guid: 7dea8166635b502479a9b018642e75fd,
+    type: 3}
+  depletedSprite: {fileID: -1044608892, guid: 7dea8166635b502479a9b018642e75fd, type: 3}
+  shakeDuration: 0.25
+  shakeMagnitude: 0.2
+  hitSound: {fileID: 8300000, guid: e219ecd19cc70474d9c0c788ee2ef9cf, type: 3}
+  breakSound: {fileID: 8300000, guid: a457aa5a7a3c38d4b988ac59b33ecabb, type: 3}
+  playSoundOnHit: 1

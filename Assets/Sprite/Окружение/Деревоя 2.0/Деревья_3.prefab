@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8951178191697779546}
   - component: {fileID: 7900952773132999182}
+  - component: {fileID: -1016927516346491759}
+  - component: {fileID: -174298285242122747}
   m_Layer: 0
   m_Name: "\u0414\u0435\u0440\u0435\u0432\u044C\u044F_3"
   m_TagString: Untagged
@@ -84,3 +86,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &-1016927516346491759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713022410389060183}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9749031, y: 8.84, z: 0.2}
+  m_Center: {x: -0.045778275, y: 4.42, z: 0}
+--- !u!114 &-174298285242122747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713022410389060183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c66284df8a10a4f9706e9536f9a719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: Wood
+  amount: 0
+  dropPrefab: {fileID: 3382428018510911383, guid: 51845611e297e004db70e7eee5a21e35,
+    type: 3}
+  maxHealth: 100
+  intactSprite: {fileID: 927006759, guid: 649197f8788f6aa4c8fd9041d8c80dd3, type: 3}
+  damagedSprite: {fileID: 719911329, guid: d747c88200fa7e14a8ad0bd6a1e43f5c, type: 3}
+  heavilyDamagedSprite: {fileID: -101669902, guid: 7dea8166635b502479a9b018642e75fd,
+    type: 3}
+  depletedSprite: {fileID: -101669902, guid: 7dea8166635b502479a9b018642e75fd, type: 3}
+  shakeDuration: 0.25
+  shakeMagnitude: 0.2
+  hitSound: {fileID: 8300000, guid: e219ecd19cc70474d9c0c788ee2ef9cf, type: 3}
+  breakSound: {fileID: 8300000, guid: a457aa5a7a3c38d4b988ac59b33ecabb, type: 3}
+  playSoundOnHit: 1

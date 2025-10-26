@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 6097245829239255687}
   - component: {fileID: 1897452459810671514}
   - component: {fileID: 8544707495682960744}
-  m_Layer: 0
+  - component: {fileID: 7294931945383411855}
+  - component: {fileID: -279973253539251442}
+  m_Layer: 3
   m_Name: "\u041B\u0430\u043C\u043F\u0430 \u043D\u0430\u0441\u0442\u0435\u043D\u043D\u0430\u044F"
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8503013467485154318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6097245829239255687
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,3 +124,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6, y: 2.51, z: 0.2}
   m_Center: {x: 0, y: 1.255, z: 0}
+--- !u!114 &7294931945383411855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503013467485154318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46c860f05408a343b002f78fb4e59bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  intactSprite: {fileID: 0}
+  damagedSprite: {fileID: 0}
+  destroyedSprite: {fileID: 0}
+  destroyGameObjectOnZero: 1
+  ruinPrefab: {fileID: 0}
+  disableCollidersOnDestroyed: 1
+  fadeOutSeconds: 6
+--- !u!114 &-279973253539251442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503013467485154318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d636e25422ce4ae4fb38d63a893fc00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  isBuilding: 1
+  buildingDestructible: {fileID: 7294931945383411855}

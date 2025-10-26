@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6666851339569295221}
   - component: {fileID: 2985863241995252376}
+  - component: {fileID: -5166518342107075870}
+  - component: {fileID: -6299434213903308535}
   m_Layer: 0
   m_Name: "\u0414\u0435\u0440\u0435\u0432\u044C\u044F_5"
   m_TagString: Untagged
@@ -84,3 +86,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &-5166518342107075870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560117479294296408}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.62, y: 3.66, z: 0.2}
+  m_Center: {x: 0, y: 1.83, z: 0}
+--- !u!114 &-6299434213903308535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560117479294296408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c66284df8a10a4f9706e9536f9a719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: Food
+  amount: 0
+  dropPrefab: {fileID: 6601983840908626571, guid: 7313f96994f8e1842813afd811c0aa10,
+    type: 3}
+  maxHealth: 100
+  intactSprite: {fileID: 512753282, guid: 649197f8788f6aa4c8fd9041d8c80dd3, type: 3}
+  damagedSprite: {fileID: -298045884, guid: d747c88200fa7e14a8ad0bd6a1e43f5c, type: 3}
+  heavilyDamagedSprite: {fileID: -590804454, guid: 7dea8166635b502479a9b018642e75fd,
+    type: 3}
+  depletedSprite: {fileID: -590804454, guid: 7dea8166635b502479a9b018642e75fd, type: 3}
+  shakeDuration: 0.25
+  shakeMagnitude: 0.2
+  hitSound: {fileID: 0}
+  breakSound: {fileID: 0}
+  playSoundOnHit: 1

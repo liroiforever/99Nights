@@ -197,12 +197,12 @@ TextureImporter:
       name: 3dafb91b-4039-47de-8af7-99d1f1870a48_4
       rect:
         serializedVersion: 2
-        x: 58
-        y: 774
-        width: 306
-        height: 305
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 100
+        y: 763
+        width: 211
+        height: 321
+      alignment: 9
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

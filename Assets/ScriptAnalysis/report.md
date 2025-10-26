@@ -1,11 +1,11 @@
 # Script Analysis Report
 
-Generated: 2025-10-13T17:12:29
+Generated: 2025-10-26T12:15:11
 
-Total scripts: 71
+Total scripts: 80
 
 ## Summary by type
-- **MonoBehaviour**: 61
+- **MonoBehaviour**: 70
 - **General**: 4
 - **Editor**: 3
 - **ScriptableObject**: 3
@@ -78,6 +78,17 @@ Total scripts: 71
 - Methods (approx): 1, Properties: 0
 - Unity methods: LateUpdate
 
+### BuildingDestructible.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\Player\Destroi postoek\BuildingDestructible.cs`
+- Lines: 159  — Size: 4567 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `BuildingDestructible` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 16, Properties: 0
+- Unity methods: Awake
+
 ### CameraController.cs
 - Path: `C:/VR/99 Night/Assets\TextMesh Pro\Examples & Extras\Scripts\CameraController.cs`
 - Lines: 292  — Size: 10637 bytes
@@ -91,13 +102,13 @@ Total scripts: 71
 
 ### Campfire.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Campfire\Campfire.cs`
-- Lines: 174  — Size: 5118 bytes
+- Lines: 242  — Size: 6764 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `Campfire` (class) inherits: MonoBehaviour
 - Public fields: 0
-- Methods (approx): 16, Properties: 0
+- Methods (approx): 27, Properties: 0
 - Unity methods: Start, Update
 
 ### CampfireIndicator.cs
@@ -124,25 +135,25 @@ Total scripts: 71
 
 ### CircularHUDController.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Player\HUD stats\CircularHUDController.cs`
-- Lines: 143  — Size: 4768 bytes
+- Lines: 152  — Size: 5091 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `CircularHUDController` (class) inherits: MonoBehaviour
 - Public fields: 0
-- Methods (approx): 7, Properties: 0
+- Methods (approx): 9, Properties: 0
 - Unity methods: Update, Awake
 
 ### CollectResource.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Player\CollectResource.cs`
-- Lines: 23  — Size: 562 bytes
+- Lines: 186  — Size: 5505 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `CollectResource` (class) inherits: MonoBehaviour
 - Public fields: 0
-- Methods (approx): 2, Properties: 0
-- Unity methods: OnTriggerEnter
+- Methods (approx): 16, Properties: 0
+- Unity methods: Update, Awake, OnTriggerEnter
 
 ### ConsumableItem.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Player\ConsumableItem.cs`
@@ -156,7 +167,7 @@ Total scripts: 71
 
 ### CraftButton.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Craft\CraftButton.cs`
-- Lines: 42  — Size: 1275 bytes
+- Lines: 41  — Size: 1168 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
@@ -178,7 +189,7 @@ Total scripts: 71
 
 ### CraftSystem.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Craft\CraftSystem.cs`
-- Lines: 44  — Size: 1346 bytes
+- Lines: 44  — Size: 1263 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
@@ -189,24 +200,35 @@ Total scripts: 71
 
 ### DayNightCycle.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\World\DayNightCycle.cs`
-- Lines: 62  — Size: 1950 bytes
+- Lines: 145  — Size: 4605 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `DayNightCycle` (class) inherits: MonoBehaviour
 - Public fields: 0
-- Methods (approx): 4, Properties: 0
+- Methods (approx): 13, Properties: 0
 - Unity methods: Update
+
+### DoorController.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\World\DoorController.cs`
+- Lines: 131  — Size: 3359 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `DoorController` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 12, Properties: 0
+- Unity methods: Update, Awake
 
 ### DragPlaceableItem.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Craft\Craftworld\DragPlaceableItem.cs`
-- Lines: 210  — Size: 7294 bytes
+- Lines: 188  — Size: 5724 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `DragPlaceableItem` (class) inherits: MonoBehaviour
 - Public fields: 0
-- Methods (approx): 19, Properties: 0
+- Methods (approx): 15, Properties: 0
 - Unity methods: Start, Update
 
 ### DropdownSample.cs
@@ -218,6 +240,17 @@ Total scripts: 71
   - `DropdownSample` (class) inherits: MonoBehaviour
 - Public fields: 0
 - Methods (approx): 1, Properties: 0
+
+### DroppedResource.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\Resourse\DroppedResource.cs`
+- Lines: 39  — Size: 1051 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `DroppedResource` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 3, Properties: 0
+- Unity methods: Start, OnTriggerEnter
 
 ### EnemyAI.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\AI\EnemyAI.cs`
@@ -232,13 +265,13 @@ Total scripts: 71
 
 ### EnemyHealth.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\AI\EnemyHealth.cs`
-- Lines: 40  — Size: 824 bytes
+- Lines: 77  — Size: 1908 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `EnemyHealth` (class) inherits: MonoBehaviour
 - Public fields: 0
-- Methods (approx): 4, Properties: 0
+- Methods (approx): 7, Properties: 0
 - Unity methods: OnEnable, Awake
 
 ### EnemySpawner.cs
@@ -262,6 +295,17 @@ Total scripts: 71
 - Public fields: 0
 - Methods (approx): 3, Properties: 0
 - Unity methods: Start, Awake
+
+### FogOfWarZone.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\World\Fog\FogOfWarZone.cs`
+- Lines: 40  — Size: 982 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `FogOfWarZone` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 6, Properties: 0
+- Unity methods: Start, Update
 
 ### FoodData.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\item\FoodData.cs`
@@ -346,6 +390,17 @@ Total scripts: 71
 - Public fields: 0
 - Methods (approx): 0, Properties: 0
 
+### ItemDatabase.cs
+- Path: `C:/VR/99 Night/Assets\Items\ItemDatabase.cs`
+- Lines: 34  — Size: 767 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `ItemDatabase` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 3, Properties: 0
+- Unity methods: Awake
+
 ### ObjectSpin.cs
 - Path: `C:/VR/99 Night/Assets\TextMesh Pro\Examples & Extras\Scripts\ObjectSpin.cs`
 - Lines: 69  — Size: 2133 bytes
@@ -359,7 +414,7 @@ Total scripts: 71
 
 ### PlaceableItem.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Craft\Craftworld\PlaceableItem.cs`
-- Lines: 45  — Size: 1446 bytes
+- Lines: 43  — Size: 1325 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
@@ -370,7 +425,7 @@ Total scripts: 71
 
 ### PlaceableItemManager.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Craft\Craftworld\PlaceableItemManager.cs`
-- Lines: 62  — Size: 2044 bytes
+- Lines: 54  — Size: 1724 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
@@ -403,13 +458,13 @@ Total scripts: 71
 
 ### PlayerInventory.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Player\PlayerInventory.cs`
-- Lines: 163  — Size: 5081 bytes
+- Lines: 173  — Size: 4949 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `PlayerInventory` (class) inherits: MonoBehaviour
 - Public fields: 0
-- Methods (approx): 14, Properties: 0
+- Methods (approx): 16, Properties: 0
 - Unity methods: Awake
 
 ### PlayerMovement.cs
@@ -800,14 +855,58 @@ Total scripts: 71
 
 ### Workbench.cs
 - Path: `C:/VR/99 Night/Assets\Scripts\Workbench\Workbench.cs`
-- Lines: 73  — Size: 2153 bytes
+- Lines: 278  — Size: 8510 bytes
 - Namespace: 
 - Type hint: MonoBehaviour
 - Classes:
   - `Workbench` (class) inherits: MonoBehaviour
   - `Recipe` (class) inherits: —
   - `RecipeRequirement` (class) inherits: —
+  - `UpgradeRequirement` (class) inherits: —
+- Public fields: 0
+- Methods (approx): 24, Properties: 0
+- Unity methods: Start, OnEnable, OnDisable, OnTriggerEnter
+
+### WorkbenchAddon.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\Workbench\WorkbenchAddon.cs`
+- Lines: 21  — Size: 643 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `WorkbenchAddon` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 1, Properties: 0
+
+### WorkbenchManager.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\Craft\Craftworld\WorkbenchManager.cs`
+- Lines: 50  — Size: 1233 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `WorkbenchManager` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 7, Properties: 0
+- Unity methods: Awake
+
+### WorkbenchRecipeButton.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\Workbench\WorkbenchRecipeButton.cs`
+- Lines: 120  — Size: 4008 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `WorkbenchRecipeButton` (class) inherits: MonoBehaviour
+- Public fields: 0
+- Methods (approx): 10, Properties: 0
+- Unity methods: Start, OnEnable, OnDisable, Awake
+
+### WorkbenchUpgradeTooltip.cs
+- Path: `C:/VR/99 Night/Assets\Scripts\Workbench\WorkbenchUpgradeTooltip.cs`
+- Lines: 70  — Size: 2213 bytes
+- Namespace: 
+- Type hint: MonoBehaviour
+- Classes:
+  - `WorkbenchUpgradeTooltip` (class) inherits: MonoBehaviour
 - Public fields: 0
 - Methods (approx): 5, Properties: 0
-- Unity methods: Start, OnTriggerEnter
+- Unity methods: Start
 

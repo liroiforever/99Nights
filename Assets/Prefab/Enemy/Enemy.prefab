@@ -169,3 +169,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 0
+  isBuilding: 0
+  buildingDestructible: {fileID: 0}

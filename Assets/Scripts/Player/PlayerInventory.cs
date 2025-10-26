@@ -4,15 +4,9 @@ using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [Header("Ресурсы")]
-    public Dictionary<string, int> resources = new Dictionary<string, int>();
-    public TextMeshProUGUI woodText;
-    public TextMeshProUGUI stoneText;
-    public TextMeshProUGUI foodText;
-
     [Header("Инвентарь")]
-    public List<Item> inventory = new List<Item>();     // основной список предметов
-    public int[] quickSlotIndices = new int[5];         // слоты хотбара (ссылки на inventory)
+    public List<Item> inventory = new List<Item>();
+    public int[] quickSlotIndices = new int[5];
     public int selectedSlot = 0;
 
     [Header("UI")]
@@ -21,13 +15,9 @@ public class PlayerInventory : MonoBehaviour
 
     void Awake()
     {
-        resources["Wood"] = 0;
-        resources["Stone"] = 0;
-        resources["Food"] = 0;
-        UpdateUI();
-
+        // Инициализация хотбара
         for (int i = 0; i < quickSlotIndices.Length; i++)
-            quickSlotIndices[i] = -1;  // пустой слот
+            quickSlotIndices[i] = -1;
 
         if (hotbarUI == null)
             hotbarUI = FindObjectOfType<HotbarUI>();
@@ -35,36 +25,64 @@ public class PlayerInventory : MonoBehaviour
             inventoryUI = FindObjectOfType<InventoryUI>();
     }
 
-    public void AddResource(string type, int amount)
+    // ======== Методы для работы с ресурсами ========
+    public bool HasResource(string name, int amount)
     {
-        if (!resources.ContainsKey(type)) return;
-        resources[type] += amount;
+        Item item = inventory.Find(i => i.data != null && i.data.itemName == name);
+        return item != null && item.amount >= amount;
+    }
+
+    public bool ConsumeResource(string name, int amount)
+    {
+        Item item = inventory.Find(i => i.data != null && i.data.itemName == name);
+        if (item == null || item.amount < amount) return false;
+
+        item.amount -= amount;
+        if (item.amount <= 0)
+            inventory.Remove(item);
+
+        UpdateUI();
+        return true;
+    }
+
+    public void AddResource(string name, int amount)
+    {
+        Item item = inventory.Find(i => i.data != null && i.data.itemName == name);
+        if (item != null)
+        {
+            item.amount += amount;
+        }
+        else
+        {
+            // Берём ItemData из ItemDatabase
+            ItemData data = ItemDatabase.GetItem(name);
+            if (data != null)
+            {
+                AddItem(data, amount);
+            }
+            else
+            {
+                Debug.LogWarning($"Ресурс {name} не найден в ItemDatabase!");
+                return;
+            }
+        }
+
         UpdateUI();
     }
 
-    public void UpdateUI()
-    {
-        if (woodText != null) woodText.SetText(resources["Wood"].ToString());
-        if (stoneText != null) stoneText.SetText(resources["Stone"].ToString());
-        if (foodText != null) foodText.SetText(resources["Food"].ToString());
-    }
-
-    public void AddItem(ItemData itemData)
+    // ======== Добавление Item в inventory ========
+    public void AddItem(ItemData itemData, int amount = 1)
     {
         if (itemData == null) return;
 
         foreach (var itm in inventory)
         {
-            if ((itm.data != null && itm.data == itemData) || itm.name == itemData.itemName)
+            if (itm.data == itemData && itm.amount < itm.maxStack)
             {
-                if (itm.amount < itm.maxStack)
-                {
-                    itm.amount++;
-                    inventoryUI.UpdateInventory();
-                    hotbarUI.UpdateIcons();
-                    Debug.Log($"Добавлен {itm.itemName}, теперь {itm.amount}");
-                    return;
-                }
+                itm.amount += amount;
+                inventoryUI?.UpdateInventory();
+                hotbarUI?.UpdateIcons();
+                return;
             }
         }
 
@@ -75,16 +93,16 @@ public class PlayerInventory : MonoBehaviour
             icon = itemData.icon,
             type = itemData.type,
             value = itemData.value,
-            amount = 1,
+            amount = amount,
             maxStack = itemData.maxStack
         };
 
         inventory.Add(newItem);
-        inventoryUI.UpdateInventory();
-        hotbarUI.UpdateIcons();
-        Debug.Log($"Создан новый предмет: {newItem.itemName}");
+        inventoryUI?.UpdateInventory();
+        hotbarUI?.UpdateIcons();
     }
 
+    // ======== Получение выбранного слота ========
     public Item GetSelectedItem()
     {
         int index = quickSlotIndices[selectedSlot];
@@ -93,6 +111,7 @@ public class PlayerInventory : MonoBehaviour
         return null;
     }
 
+    // ======== Использование предмета ========
     public void UseSelectedItem()
     {
         Item item = GetSelectedItem();
@@ -105,49 +124,32 @@ public class PlayerInventory : MonoBehaviour
                 break;
 
             case ItemType.Consumable:
-                // Проверяем, является ли этот Consumable едой
                 if (item.data is FoodData food)
                 {
                     PlayerStats stats = GetComponent<PlayerStats>();
-                    if (stats != null)
-                    {
-                        stats.Eat(food.hungerRestored);
-                        stats.Rest(food.energyRestored);
-                    }
+                    stats?.Eat(food.hungerRestore);
+                    stats?.Rest(food.energyRestore);
+
+                    // если еда восстанавливает здоровье — используем существующий метод PlayerInventory.Heal
+                    if (food.healthRestore > 0)
+                        Heal(food.healthRestore);
                 }
                 else
                 {
-                    // Если это не еда — лечим здоровье, как раньше
                     Heal(item.value);
                 }
 
-                // уменьшаем количество
                 item.amount--;
-
-                // обновляем UI
-                inventoryUI.UpdateInventory();
-                hotbarUI.UpdateIcons();
-
-                // если предмет закончился — удаляем его
                 if (item.amount <= 0)
-                {
-                    int removedIndex = inventory.IndexOf(item);
                     inventory.Remove(item);
 
-                    // очищаем хотбар
-                    for (int i = 0; i < quickSlotIndices.Length; i++)
-                        if (quickSlotIndices[i] == removedIndex)
-                            quickSlotIndices[i] = -1;
-
-                    // обновляем UI снова
-                    inventoryUI.UpdateInventory();
-                    hotbarUI.UpdateIcons();
-                }
+                UpdateUI();
                 break;
         }
     }
 
 
+    // ======== Восстановление здоровья ========
     public void Heal(int amount)
     {
         PlayerHealth playerHealth = GetComponent<PlayerHealth>();
@@ -156,7 +158,15 @@ public class PlayerInventory : MonoBehaviour
             playerHealth.currentHealth += amount;
             if (playerHealth.currentHealth > playerHealth.maxHealth)
                 playerHealth.currentHealth = playerHealth.maxHealth;
+
             playerHealth.UpdateUI();
         }
+    }
+
+    // ======== Обновление UI ========
+    public void UpdateUI()
+    {
+        inventoryUI?.UpdateInventory();
+        hotbarUI?.UpdateIcons();
     }
 }

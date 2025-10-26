@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5082218500784517927}
   - component: {fileID: 7830694184293805594}
   - component: {fileID: 7838143899910734629}
-  m_Layer: 0
+  - component: {fileID: 231604623950581075}
+  - component: {fileID: -3024043816920649331}
+  m_Layer: 3
   m_Name: "\u0414\u0432\u0435\u0440\u044C 1"
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6834854298127427388}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5082218500784517927
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,3 +124,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.57, y: 2.43, z: 0.2}
   m_Center: {x: 0, y: 1.215, z: 0}
+--- !u!114 &231604623950581075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834854298127427388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46c860f05408a343b002f78fb4e59bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  intactSprite: {fileID: 0}
+  damagedSprite: {fileID: 0}
+  destroyedSprite: {fileID: 0}
+  destroyGameObjectOnZero: 1
+  ruinPrefab: {fileID: 0}
+  disableCollidersOnDestroyed: 1
+  fadeOutSeconds: 6
+--- !u!114 &-3024043816920649331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834854298127427388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d636e25422ce4ae4fb38d63a893fc00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  isBuilding: 1
+  buildingDestructible: {fileID: 231604623950581075}

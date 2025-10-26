@@ -16,4 +16,4 @@ MonoBehaviour:
   requirements:
   - resourceType: Stone
     amount: 5
-  craftTime: 0
+  craftTime: 20

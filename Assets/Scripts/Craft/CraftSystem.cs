@@ -22,8 +22,7 @@ public class CraftSystem : MonoBehaviour
         // Проверка ресурсов
         foreach (var req in recipe.requirements)
         {
-            if (!playerInventory.resources.ContainsKey(req.resourceType) ||
-                playerInventory.resources[req.resourceType] < req.amount)
+            if (!playerInventory.HasResource(req.resourceType, req.amount))
             {
                 Debug.Log($"? Не хватает {req.resourceType} для {recipe.result.itemName}");
                 return;
@@ -32,12 +31,13 @@ public class CraftSystem : MonoBehaviour
 
         // Списание ресурсов
         foreach (var req in recipe.requirements)
-            playerInventory.resources[req.resourceType] -= req.amount;
+            playerInventory.ConsumeResource(req.resourceType, req.amount);
 
-        // Добавление предмета в инвентарь
+        // Добавляем предмет
         playerInventory.AddItem(recipe.result);
         playerInventory.UpdateUI();
 
         Debug.Log($"? Создан предмет: {recipe.result.itemName}");
     }
+
 }

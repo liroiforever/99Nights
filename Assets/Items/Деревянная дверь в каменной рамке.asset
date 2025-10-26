@@ -19,4 +19,4 @@ MonoBehaviour:
     amount: 4
   - resourceType: Stone
     amount: 10
-  craftTime: 0
+  craftTime: 25

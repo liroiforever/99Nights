@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7498622135823947036}
   - component: {fileID: 7979966910289548332}
+  - component: {fileID: -5557172672358661546}
+  - component: {fileID: 5813100662646171177}
   m_Layer: 0
   m_Name: "\u041A\u0430\u043C\u0435\u043D\u044C1"
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,14 +75,61 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3da22c403f27f9f49945be1094e77cb9, type: 3}
+  m_Sprite: {fileID: 1256450886, guid: 4091143bc54d77b4d96e3fa07e35ddbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 2.38, y: 1.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &-5557172672358661546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168413444780368298}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.76, y: 3.52, z: 0.2}
+  m_Center: {x: 0, y: 1.76, z: 0}
+--- !u!114 &5813100662646171177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168413444780368298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c66284df8a10a4f9706e9536f9a719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: Stone
+  amount: 0
+  dropPrefab: {fileID: 8168400221878742232, guid: 98282acdf241e7946a5ce6c0936e17c8,
+    type: 3}
+  maxHealth: 100
+  intactSprite: {fileID: 0}
+  damagedSprite: {fileID: 0}
+  heavilyDamagedSprite: {fileID: 0}
+  depletedSprite: {fileID: 0}
+  shakeDuration: 0.25
+  shakeMagnitude: 0.2
+  hitSound: {fileID: 0}
+  breakSound: {fileID: 0}
+  playSoundOnHit: 1

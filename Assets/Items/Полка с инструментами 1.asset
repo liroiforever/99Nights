@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2322b70423a43a849a2cc43baa5c5220, type: 3}
+  m_Name: "\u041F\u043E\u043B\u043A\u0430 \u0441 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430\u043C\u0438
+    1"
+  m_EditorClassIdentifier: 
+  itemName: "\u041F\u043E\u043B\u043A\u0430 \u0441 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430\u043C\u0438"
+  icon: {fileID: 276770251, guid: b1376f1eacbdece46a908559f02931db, type: 3}
+  type: 3
+  value: 0
+  maxStack: 10
+  hungerRestore: 0
+  energyRestore: 0
+  healthRestore: 0
+  placeablePrefab: {fileID: 1557411919603666316, guid: 2ed4d34906622304bad62fb9b09aa28f,
+    type: 3}

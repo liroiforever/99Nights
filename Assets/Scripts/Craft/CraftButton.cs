@@ -21,21 +21,20 @@ public class CraftButton : MonoBehaviour
         // Проверка ресурсов
         foreach (var req in recipe)
         {
-            if (!playerInventory.resources.ContainsKey(req.resourceType) ||
-                playerInventory.resources[req.resourceType] < req.amount)
+            if (!playerInventory.HasResource(req.resourceType, req.amount))
             {
                 Debug.Log($"? Не хватает {req.resourceType} для {craftedItem.itemName}");
                 return;
             }
         }
 
-        // Снимаем ресурсы
+        // Списание ресурсов
         foreach (var req in recipe)
-            playerInventory.resources[req.resourceType] -= req.amount;
+            playerInventory.ConsumeResource(req.resourceType, req.amount);
 
-        // Добавляем в инвентарь (в хотбар, если есть пустой слот)
+        // Добавляем предмет
         playerInventory.AddItem(craftedItem);
-
         Debug.Log($"? Создан предмет: {craftedItem.itemName}");
     }
+
 }

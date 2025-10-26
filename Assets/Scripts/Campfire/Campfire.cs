@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; // для текста уровня
 
 public class Campfire : MonoBehaviour
 {
@@ -9,22 +10,38 @@ public class Campfire : MonoBehaviour
     public float tickRate = 1f;
 
     [Header("Параметры костра")]
-    public float maxBurnTime = 60f; // сколько секунд горит костер
+    public float maxBurnTime = 60f;
     private float currentBurnTime;
 
     [Header("UI костра")]
-    public Slider burnSlider; // ссылка на слайдер
-    public GameObject fireEffect; // particle system (огонь)
-    public Light fireLight; // Point Light для костра
+    public Slider burnSlider;
+    public GameObject fireEffect;
+    public Light fireLight;
 
     [Header("Подкидывание дров")]
-    public KeyCode addFuelKey = KeyCode.E;  // клавиша подкидывания
-    public float fuelAddAmount = 20f;       // сколько секунд добавляет одно полено
-    public float interactionRadius = 3f;    // радиус взаимодействия
+    public KeyCode addFuelKey = KeyCode.E;
+    public float fuelAddAmount = 20f;
+    public float interactionRadius = 3f;
+
+    [Header("Туман / Fog of War")]
+    public FogOfWarZone fogZone;
+    public float fogIncreasePerLevel = 5f; // запасной вариант, если массив не заполнен
+    public float[] fogExpandPerLevel; // прибавка радиуса для каждого уровня
+
+    [Header("Уровень костра")]
+    public int campfireLevel = 0;
+    public int maxLevel = 5;
+    public int[] woodRequiredPerLevel = { 10, 20, 30, 50, 80 };
+    private int currentWoodCount = 0;
+
+    [Header("UI уровня")]
+    public Slider levelSlider;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI levelProgressText;
 
     private Transform player;
     private PlayerInventory playerInventory;
-    private float timer = 0f;
+    private float timer;
     private bool isActive = true;
 
     void Start()
@@ -44,33 +61,25 @@ public class Campfire : MonoBehaviour
             burnSlider.value = currentBurnTime;
         }
 
-        // Изначально включаем свет, если костёр активен
-        if (fireLight != null)
-            fireLight.intensity = currentBurnTime > 0 ? 5f : 0f;
+        UpdateLevelUI();
+
+        if (fireLight != null) fireLight.intensity = 20f;
     }
 
     void Update()
     {
         if (!isActive) return;
 
-        // Горение костра
         currentBurnTime -= Time.deltaTime;
         if (burnSlider != null)
             burnSlider.value = currentBurnTime;
 
-        // Плавная интенсивность Point Light
         if (fireLight != null)
-        {
             fireLight.intensity = Mathf.Lerp(0f, 5f, Mathf.Clamp01(currentBurnTime / maxBurnTime));
-        }
 
-        // Если костёр потух
         if (currentBurnTime <= 0)
-        {
             Extinguish();
-        }
 
-        // Проверяем взаимодействие с игроком
         if (player != null && Vector3.Distance(player.position, transform.position) <= interactionRadius)
         {
             if (Input.GetKeyDown(addFuelKey))
@@ -96,7 +105,6 @@ public class Campfire : MonoBehaviour
             {
                 playerHealth.currentHealth = Mathf.Min(playerHealth.currentHealth + healthPerSecond, playerHealth.maxHealth);
                 playerStats.Rest(energyPerSecond);
-
                 playerHealth.UpdateUI();
                 playerStats.UpdateUI();
 
@@ -114,35 +122,82 @@ public class Campfire : MonoBehaviour
 
     void TryAddFuel()
     {
-        if (playerInventory == null)
+        if (playerInventory == null) return;
+
+        if (playerInventory.ConsumeResource("Wood", 1))
         {
-            Debug.LogWarning("Нет ссылки на PlayerInventory!");
-            return;
+            AddFuel(fuelAddAmount);
+
+            if (campfireLevel < maxLevel)
+            {
+                currentWoodCount++;
+                CheckLevelUp();
+                UpdateLevelUI();
+            }
+        }
+    }
+
+    void CheckLevelUp()
+    {
+        if (campfireLevel >= maxLevel) return;
+
+        if (currentWoodCount >= woodRequiredPerLevel[campfireLevel])
+        {
+            campfireLevel++;
+            currentWoodCount = 0;
+
+            // Новый радиус тумана: сумма всех приростов до текущего уровня
+            if (fogZone != null)
+            {
+                float totalRadius = 0f;
+                for (int i = 0; i < campfireLevel; i++)
+                {
+                    totalRadius += GetFogAddForLevel(i + 1);
+                }
+                fogZone.ExpandFog(totalRadius);
+            }
+
+            Debug.Log("Костёр достиг уровня " + campfireLevel);
+        }
+    }
+
+    float GetFogAddForLevel(int level)
+    {
+        int idx = level - 1;
+        if (fogExpandPerLevel != null && idx >= 0 && idx < fogExpandPerLevel.Length)
+        {
+            return fogExpandPerLevel[idx];
+        }
+        return fogIncreasePerLevel;
+    }
+
+    void UpdateLevelUI()
+    {
+        if (levelSlider != null)
+        {
+            if (campfireLevel < maxLevel)
+                levelSlider.value = (float)currentWoodCount / woodRequiredPerLevel[campfireLevel];
+            else
+                levelSlider.value = 1f;
         }
 
-        // Проверяем наличие дерева
-        if (playerInventory.resources.ContainsKey("Wood") && playerInventory.resources["Wood"] > 0)
+        if (levelText != null)
+            levelText.text = $"{campfireLevel}";
+
+        if (levelProgressText != null)
         {
-            playerInventory.resources["Wood"] -= 1; // -1 дерево
-            playerInventory.UpdateUI(); // обновляем UI
-            AddFuel(fuelAddAmount);
-            Debug.Log("Костер: добавлено 1 дерево, +20 секунд горения.");
-        }
-        else
-        {
-            Debug.Log("Нет дров для костра!");
+            if (campfireLevel < maxLevel)
+                levelProgressText.text = $"{currentWoodCount} / {woodRequiredPerLevel[campfireLevel]}";
+            else
+                levelProgressText.text = "MAX";
         }
     }
 
     void Extinguish()
     {
         isActive = false;
-        if (fireEffect != null)
-            fireEffect.SetActive(false);
-        if (fireLight != null)
-            fireLight.intensity = 0f;
-
-        Debug.Log("Костер потух!");
+        if (fireEffect) fireEffect.SetActive(false);
+        if (fireLight) fireLight.intensity = 0f;
     }
 
     public void AddFuel(float amount)
@@ -151,17 +206,30 @@ public class Campfire : MonoBehaviour
         if (currentBurnTime > maxBurnTime)
             currentBurnTime = maxBurnTime;
 
-        if (burnSlider != null)
-            burnSlider.value = currentBurnTime;
-
-        // Если костёр был потухший — разжигаем его заново
         if (!isActive)
         {
             isActive = true;
-            if (fireEffect != null)
-                fireEffect.SetActive(true);
-            if (fireLight != null)
-                fireLight.intensity = Mathf.Lerp(0f, 5f, Mathf.Clamp01(currentBurnTime / maxBurnTime));
+            if (fireEffect) fireEffect.SetActive(true);
+        }
+    }
+
+    public void UpgradeCampfireExternal()
+    {
+        if (campfireLevel < maxLevel)
+        {
+            campfireLevel++;
+            currentWoodCount = 0;
+            UpdateLevelUI();
+
+            if (fogZone != null)
+            {
+                float totalRadius = 0f;
+                for (int i = 0; i < campfireLevel; i++)
+                {
+                    totalRadius += GetFogAddForLevel(i + 1);
+                }
+                fogZone.ExpandFog(totalRadius);
+            }
         }
     }
 

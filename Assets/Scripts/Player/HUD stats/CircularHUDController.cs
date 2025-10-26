@@ -92,17 +92,10 @@ public class CircularHUDController : MonoBehaviour
         if (dayNightCycle == null || dayNightCircle == null)
             return;
 
-        // Получаем долю времени от 0 до 1
         float timePercent = Mathf.Clamp01(dayNightCycle.currentTime);
-
-        // Преобразуем её в угол — 0..360 градусов
         float angle = timePercent * 360f;
+        if (invertRotation) angle = -angle;
 
-        // Применяем направление вращения
-        if (invertRotation)
-            angle = -angle;
-
-        // Плавный поворот круга (по оси Z)
         Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
         dayNightCircle.localRotation = Quaternion.Lerp(
             dayNightCircle.localRotation,
@@ -110,10 +103,26 @@ public class CircularHUDController : MonoBehaviour
             Time.deltaTime * rotationSmoothness
         );
 
-        // Обновляем текст
         if (dayNightText != null)
-            dayNightText.text = dayNightCycle.isNight ? "Ночь" : "День";
+        {
+            switch (dayNightCycle.currentPhase)
+            {
+                case DayNightCycle.TimeOfDay.Morning:
+                    dayNightText.text = "Утро";
+                    break;
+                case DayNightCycle.TimeOfDay.Day:
+                    dayNightText.text = "День";
+                    break;
+                case DayNightCycle.TimeOfDay.Evening:
+                    dayNightText.text = "Вечер";
+                    break;
+                case DayNightCycle.TimeOfDay.Night:
+                    dayNightText.text = "Ночь";
+                    break;
+            }
+        }
     }
+
 
 
     void RotateSmooth(RectTransform circle, float percent)

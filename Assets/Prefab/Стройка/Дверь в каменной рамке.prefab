@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 4105629589417711294}
   - component: {fileID: -7587865167840535643}
   - component: {fileID: 901786132719830606}
-  m_Layer: 0
+  - component: {fileID: 9051686747031930236}
+  - component: {fileID: -8297556744231998860}
+  m_Layer: 3
   m_Name: "\u0414\u0432\u0435\u0440\u044C \u0432 \u043A\u0430\u043C\u0435\u043D\u043D\u043E\u0439
     \u0440\u0430\u043C\u043A\u0435"
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6664233420253317282}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4105629589417711294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -123,3 +125,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.84, y: 3.53, z: 0.2}
   m_Center: {x: 0, y: 1.765, z: 0}
+--- !u!114 &9051686747031930236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6664233420253317282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46c860f05408a343b002f78fb4e59bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  intactSprite: {fileID: 0}
+  damagedSprite: {fileID: 0}
+  destroyedSprite: {fileID: 0}
+  destroyGameObjectOnZero: 1
+  ruinPrefab: {fileID: 0}
+  disableCollidersOnDestroyed: 1
+  fadeOutSeconds: 6
+--- !u!114 &-8297556744231998860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6664233420253317282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d636e25422ce4ae4fb38d63a893fc00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  isBuilding: 1
+  buildingDestructible: {fileID: 9051686747031930236}

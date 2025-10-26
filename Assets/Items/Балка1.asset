@@ -16,4 +16,4 @@ MonoBehaviour:
   requirements:
   - resourceType: Wood
     amount: 5
-  craftTime: 0
+  craftTime: 10

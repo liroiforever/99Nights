@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2025-10-13T17:12:29",
+    "generatedAt": "2025-10-26T12:15:11",
     "items": [
         {
             "path": "C:/VR/99 Night/Assets\\Editor\\ScriptAnalyzerWindow.cs",
@@ -806,6 +806,87 @@
             ]
         },
         {
+            "path": "C:/VR/99 Night/Assets\\Items\\ItemDatabase.cs",
+            "fileName": "ItemDatabase.cs",
+            "sizeBytes": 767,
+            "lines": 34,
+            "namespace": "",
+            "usings": [
+                "System.Collections.Generic",
+                "UnityEngine"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "ItemDatabase",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "Instance",
+                    "type": "public static ItemDatabase",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "allItems",
+                    "type": "]\r\n    public List<ItemData>",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "Instance",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 3,
+            "unityMethods": [
+                "Awake"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using System.Collections.Generic;",
+            "possibleTypeReferences": [
+                "System",
+                "Collections",
+                "Generic",
+                "UnityEngine",
+                "ItemDatabase",
+                "MonoBehaviour",
+                "Instance",
+                "Header",
+                "List",
+                "ItemData",
+                "Awake",
+                "Destroy",
+                "GetItem",
+                "Debug",
+                "LogError",
+                "Find"
+            ]
+        },
+        {
             "path": "C:/VR/99 Night/Assets\\Scripts\\AI\\EnemyAI.cs",
             "fileName": "EnemyAI.cs",
             "sizeBytes": 1741,
@@ -957,8 +1038,8 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\AI\\EnemyHealth.cs",
             "fileName": "EnemyHealth.cs",
-            "sizeBytes": 824,
-            "lines": 40,
+            "sizeBytes": 1908,
+            "lines": 77,
             "namespace": "",
             "usings": [
                 "UnityEngine"
@@ -999,7 +1080,25 @@
                     "isSerialized": false
                 },
                 {
+                    "name": "isBuilding",
+                    "type": "]\r\n    public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "buildingDestructible",
+                    "type": "public BuildingDestructible",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
                     "name": "enemyAI",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "buildingDestructible",
                     "type": "",
                     "visibility": "private",
                     "isSerialized": false
@@ -1009,12 +1108,24 @@
                     "type": "",
                     "visibility": "private",
                     "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
                 }
             ],
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 4,
+            "methodsCount": 7,
             "unityMethods": [
                 "OnEnable",
                 "Awake"
@@ -1028,9 +1139,11 @@
                 "MonoBehaviour",
                 "Header",
                 "EnemyAI",
+                "BuildingDestructible",
                 "Awake",
                 "GetComponent",
                 "OnEnable",
+                "Repair",
                 "TakeDamage",
                 "Die",
                 "Debug",
@@ -1302,12 +1415,13 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Campfire\\Campfire.cs",
             "fileName": "Campfire.cs",
-            "sizeBytes": 5118,
-            "lines": 174,
+            "sizeBytes": 6764,
+            "lines": 242,
             "namespace": "",
             "usings": [
                 "UnityEngine",
-                "UnityEngine.UI"
+                "UnityEngine.UI",
+                "TMPro"
             ],
             "classes": [
                 {
@@ -1322,6 +1436,12 @@
             "allFields": [
                 {
                     "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "TMPro",
                     "type": "using",
                     "visibility": "private",
                     "isSerialized": false
@@ -1389,6 +1509,66 @@
                 {
                     "name": "interactionRadius",
                     "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "fogZone",
+                    "type": "]\r\n    public FogOfWarZone",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "fogIncreasePerLevel",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "fogExpandPerLevel",
+                    "type": "public float[]",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "campfireLevel",
+                    "type": "]\r\n    public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "maxLevel",
+                    "type": "public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "woodRequiredPerLevel",
+                    "type": "public int[]",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentWoodCount",
+                    "type": "private int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "levelSlider",
+                    "type": "]\r\n    public Slider",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "levelText",
+                    "type": "public TextMeshProUGUI",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "levelProgressText",
+                    "type": "public TextMeshProUGUI",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -1465,8 +1645,38 @@
                     "isSerialized": false
                 },
                 {
-                    "name": "return",
+                    "name": "currentWoodCount",
                     "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "totalRadius",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "i",
+                    "type": "int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "campfireLevel",
+                    "type": "i <",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "idx",
+                    "type": "int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "fogIncreasePerLevel",
+                    "type": "return",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -1487,12 +1697,36 @@
                     "type": "",
                     "visibility": "private",
                     "isSerialized": false
+                },
+                {
+                    "name": "currentWoodCount",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "totalRadius",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "i",
+                    "type": "int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "campfireLevel",
+                    "type": "i <",
+                    "visibility": "private",
+                    "isSerialized": false
                 }
             ],
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 16,
+            "methodsCount": 27,
             "unityMethods": [
                 "Start",
                 "Update"
@@ -1503,20 +1737,25 @@
             "possibleTypeReferences": [
                 "UnityEngine",
                 "UI",
+                "TMPro",
                 "Campfire",
                 "MonoBehaviour",
                 "Header",
                 "Slider",
                 "GameObject",
                 "Light",
-                "Point",
                 "KeyCode",
+                "Fog",
+                "War",
+                "FogOfWarZone",
+                "TextMeshProUGUI",
                 "Transform",
                 "PlayerInventory",
                 "Start",
                 "FindGameObjectWithTag",
                 "Player",
                 "GetComponent",
+                "UpdateLevelUI",
                 "Update",
                 "Time",
                 "Mathf",
@@ -1535,12 +1774,7 @@
                 "SetNearCampfire",
                 "Min",
                 "Rest",
-                "UpdateUI",
-                "OnTriggerExit",
-                "Debug",
-                "LogWarning",
-                "ContainsKey",
-                "Wood"
+                "UpdateUI"
             ]
         },
         {
@@ -1732,8 +1966,8 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Craft\\CraftButton.cs",
             "fileName": "CraftButton.cs",
-            "sizeBytes": 1275,
-            "lines": 42,
+            "sizeBytes": 1168,
+            "lines": 41,
             "namespace": "",
             "usings": [
                 "System.Collections.Generic",
@@ -1821,9 +2055,10 @@
                 "ResourceRequirement",
                 "Serializable",
                 "CraftItem",
-                "ContainsKey",
+                "HasResource",
                 "Debug",
                 "Log",
+                "ConsumeResource",
                 "AddItem"
             ]
         },
@@ -1922,7 +2157,7 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Craft\\CraftSystem.cs",
             "fileName": "CraftSystem.cs",
-            "sizeBytes": 1346,
+            "sizeBytes": 1263,
             "lines": 44,
             "namespace": "",
             "usings": [
@@ -2001,9 +2236,10 @@
                 "FindObjectOfType",
                 "Craft",
                 "Count",
-                "ContainsKey",
+                "HasResource",
                 "Debug",
                 "Log",
+                "ConsumeResource",
                 "AddItem",
                 "UpdateUI"
             ]
@@ -3007,10 +3243,11 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Player\\CollectResource.cs",
             "fileName": "CollectResource.cs",
-            "sizeBytes": 562,
-            "lines": 23,
+            "sizeBytes": 5505,
+            "lines": 186,
             "namespace": "",
             "usings": [
+                "System.Collections",
                 "UnityEngine"
             ],
             "classes": [
@@ -3032,7 +3269,7 @@
                 },
                 {
                     "name": "resourceType",
-                    "type": "public string",
+                    "type": "]\r\n    public string",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -3043,8 +3280,218 @@
                     "isSerialized": false
                 },
                 {
+                    "name": "dropPrefab",
+                    "type": "public GameObject",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "maxHealth",
+                    "type": "]\r\n    public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "private int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "isDepleted",
+                    "type": "private bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "intactSprite",
+                    "type": "]\r\n    public Sprite",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "damagedSprite",
+                    "type": "public Sprite",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "heavilyDamagedSprite",
+                    "type": "public Sprite",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "depletedSprite",
+                    "type": "public Sprite",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "spriteRenderer",
+                    "type": "private SpriteRenderer",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "shakeDuration",
+                    "type": "]\r\n    public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "shakeMagnitude",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "hitSound",
+                    "type": "]\r\n    public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "breakSound",
+                    "type": "public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "playSoundOnHit",
+                    "type": "public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "audioSource",
+                    "type": "private AudioSource",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "originalLocalPos",
+                    "type": "private Vector3",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "spriteRenderer",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "audioSource",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "audioSource",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "originalLocalPos",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "player",
+                    "type": "GameObject",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "pAttack",
+                    "type": "PlayerAttack",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "dist",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
                     "name": "inv",
                     "type": "PlayerInventory",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "inv",
+                    "type": "PlayerInventory",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "healthPercent",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "isDepleted",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "col",
+                    "type": "Collider",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "elapsed",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "x",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "y",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "yield return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "pos",
+                    "type": "Vector3",
                     "visibility": "private",
                     "isSerialized": false
                 }
@@ -3052,28 +3499,56 @@
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 2,
+            "methodsCount": 16,
             "unityMethods": [
+                "Update",
+                "Awake",
                 "OnTriggerEnter"
             ],
             "todos": [],
             "typeHint": "MonoBehaviour",
-            "summary": "using UnityEngine;",
+            "summary": "using System.Collections;",
             "possibleTypeReferences": [
+                "System",
+                "Collections",
                 "UnityEngine",
+                "RequireComponent",
+                "Collider",
                 "CollectResource",
                 "MonoBehaviour",
+                "Header",
+                "Resource",
+                "Settings",
                 "Wood",
                 "Stone",
                 "Food",
-                "OnTriggerEnter",
-                "Collider",
-                "CompareTag",
-                "Player",
-                "PlayerInventory",
+                "GameObject",
+                "Health",
+                "Visual",
+                "States",
+                "Sprite",
+                "SpriteRenderer",
+                "Shake",
+                "Effect",
+                "Audio",
+                "AudioClip",
+                "AudioSource",
+                "Vector3",
+                "Awake",
                 "GetComponent",
-                "AddResource",
-                "Destroy"
+                "AddComponent",
+                "Update",
+                "Space",
+                "Input",
+                "GetKeyDown",
+                "KeyCode",
+                "FindWithTag",
+                "Player",
+                "PlayerAttack",
+                "Distance",
+                "ApplyDamage",
+                "OnTriggerEnter",
+                "CompareTag"
             ]
         },
         {
@@ -3452,8 +3927,8 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Player\\PlayerInventory.cs",
             "fileName": "PlayerInventory.cs",
-            "sizeBytes": 5081,
-            "lines": 163,
+            "sizeBytes": 4949,
+            "lines": 173,
             "namespace": "",
             "usings": [
                 "System.Collections.Generic",
@@ -3480,30 +3955,6 @@
                 {
                     "name": "TMPro",
                     "type": "using",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "resources",
-                    "type": "]\r\n    public Dictionary<string, int>",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "woodText",
-                    "type": "public TextMeshProUGUI",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "stoneText",
-                    "type": "public TextMeshProUGUI",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "foodText",
-                    "type": "public TextMeshProUGUI",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -3556,6 +4007,48 @@
                     "isSerialized": false
                 },
                 {
+                    "name": "item",
+                    "type": "Item",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "item",
+                    "type": "Item",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "false",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "true",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "item",
+                    "type": "Item",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "data",
+                    "type": "ItemDatabase\r\n            ItemData",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
                     "name": "return",
                     "type": "",
                     "visibility": "private",
@@ -3592,18 +4085,6 @@
                     "isSerialized": false
                 },
                 {
-                    "name": "removedIndex",
-                    "type": "int",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "i",
-                    "type": "int",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
                     "name": "break",
                     "type": "",
                     "visibility": "private",
@@ -3619,7 +4100,7 @@
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 14,
+            "methodsCount": 16,
             "unityMethods": [
                 "Awake"
             ],
@@ -3635,30 +4116,28 @@
                 "PlayerInventory",
                 "MonoBehaviour",
                 "Header",
-                "Dictionary",
-                "TextMeshProUGUI",
                 "List",
                 "Item",
                 "UI",
                 "HotbarUI",
                 "InventoryUI",
                 "Awake",
-                "Wood",
-                "Stone",
-                "Food",
-                "UpdateUI",
                 "Length",
                 "FindObjectOfType",
+                "HasResource",
+                "Find",
+                "ConsumeResource",
+                "Remove",
+                "UpdateUI",
                 "AddResource",
-                "ContainsKey",
-                "SetText",
-                "ToString",
-                "AddItem",
                 "ItemData",
+                "ItemDatabase",
+                "GetItem",
+                "AddItem",
+                "Debug",
+                "LogWarning",
                 "UpdateInventory",
                 "UpdateIcons",
-                "Debug",
-                "Log",
                 "Add",
                 "GetSelectedItem",
                 "Count",
@@ -3666,7 +4145,9 @@
                 "ItemType",
                 "Weapon",
                 "GetComponent",
-                "PlayerAttack"
+                "PlayerAttack",
+                "UseWeapon",
+                "Consumable"
             ]
         },
         {
@@ -4144,6 +4625,97 @@
             ]
         },
         {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\Resourse\\DroppedResource.cs",
+            "fileName": "DroppedResource.cs",
+            "sizeBytes": 1051,
+            "lines": 39,
+            "namespace": "",
+            "usings": [
+                "UnityEngine"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "DroppedResource",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "resourceType",
+                    "type": "]\r\n    public string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "amount",
+                    "type": "public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "lifetime",
+                    "type": "]\r\n    public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "c",
+                    "type": "Collider",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "inv",
+                    "type": "PlayerInventory",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 3,
+            "unityMethods": [
+                "Start",
+                "OnTriggerEnter"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using UnityEngine;",
+            "possibleTypeReferences": [
+                "UnityEngine",
+                "RequireComponent",
+                "Collider",
+                "DroppedResource",
+                "MonoBehaviour",
+                "Header",
+                "Resource",
+                "Settings",
+                "Wood",
+                "Lifetime",
+                "Start",
+                "GetComponent",
+                "Destroy",
+                "OnTriggerEnter",
+                "CompareTag",
+                "Player",
+                "PlayerInventory",
+                "AddResource",
+                "Debug",
+                "Log"
+            ]
+        },
+        {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Resourse\\ResourceSpawner.cs",
             "fileName": "ResourceSpawner.cs",
             "sizeBytes": 1042,
@@ -4258,12 +4830,15 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Workbench\\Workbench.cs",
             "fileName": "Workbench.cs",
-            "sizeBytes": 2153,
-            "lines": 73,
+            "sizeBytes": 8510,
+            "lines": 278,
             "namespace": "",
             "usings": [
+                "System.Collections",
                 "System.Collections.Generic",
-                "UnityEngine"
+                "UnityEngine",
+                "UnityEngine.UI",
+                "TMPro"
             ],
             "classes": [
                 {
@@ -4285,6 +4860,12 @@
                     "kind": "class",
                     "name": "RecipeRequirement",
                     "baseTypes": []
+                },
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "UpgradeRequirement",
+                    "baseTypes": []
                 }
             ],
             "allFields": [
@@ -4295,14 +4876,26 @@
                     "isSerialized": false
                 },
                 {
-                    "name": "result",
-                    "type": "public ItemData",
+                    "name": "TMPro",
+                    "type": "using",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
-                    "name": "requirements",
-                    "type": "public List<RecipeRequirement>",
+                    "name": "workbenchType",
+                    "type": "]\r\n    public WorkbenchType",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "recipeData",
+                    "type": "public CraftRecipeData",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "requiredWorkbenchLevel",
+                    "type": "public int",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -4319,8 +4912,38 @@
                     "isSerialized": false
                 },
                 {
+                    "name": "targetLevel",
+                    "type": "public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "resources",
+                    "type": "public List<RecipeRequirement>",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "requiredNearbyObject",
+                    "type": "public GameObject",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "detectRadius",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
                     "name": "recipes",
-                    "type": "public List<Recipe>",
+                    "type": "]\r\n    public List<Recipe>",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "upgradeRequirements",
+                    "type": "public List<UpgradeRequirement>",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -4337,14 +4960,236 @@
                     "isSerialized": false
                 },
                 {
+                    "name": "recipeButtons",
+                    "type": "]\r\n    public Button[]",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "recipeInfoTexts",
+                    "type": "public TMP_Text[]",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "workbenchLevelText",
+                    "type": "public TMP_Text",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentLevel",
+                    "type": "]\r\n    public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "maxLevel",
+                    "type": "public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "recipeInProgress",
+                    "type": "private bool[]",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
                     "name": "playerInventory",
                     "type": "",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
+                    "name": "craftingUI",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "recipeInProgress",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "uiName",
+                    "type": "string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "uiName",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "uiName",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "uiName",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "allObjects",
+                    "type": "GameObject[]",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "obj",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
                     "name": "recipe",
-                    "type": "Recipe",
+                    "type": "var",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "requiredLevel",
+                    "type": "var",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "yield",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "yield",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "time",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "elapsed",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "yield return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "i",
+                    "type": "int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "recipe",
+                    "type": "var",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "unlocked",
+                    "type": "bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "req",
+                    "type": "UpgradeRequirement",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "found",
+                    "type": "bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "dist",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "found",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -4358,52 +5203,500 @@
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 5,
+            "methodsCount": 24,
             "unityMethods": [
                 "Start",
+                "OnEnable",
+                "OnDisable",
                 "OnTriggerEnter"
             ],
             "todos": [],
             "typeHint": "MonoBehaviour",
-            "summary": "using System.Collections.Generic;",
+            "summary": "using System.Collections;",
             "possibleTypeReferences": [
                 "System",
                 "Collections",
                 "Generic",
                 "UnityEngine",
+                "UI",
+                "TMPro",
                 "Workbench",
                 "MonoBehaviour",
+                "WorkbenchType",
+                "Default",
+                "Furnace",
+                "CraftingTable",
+                "Header",
                 "Serializable",
                 "Recipe",
-                "ItemData",
-                "List",
+                "CraftRecipeData",
                 "RecipeRequirement",
+                "UpgradeRequirement",
+                "List",
                 "GameObject",
-                "Canvas",
                 "PlayerInventory",
+                "Button",
+                "TMP_Text",
                 "Start",
                 "FindObjectOfType",
+                "FindCraftingUI",
                 "SetActive",
+                "Count",
+                "UpdateCraftingUI",
+                "FurnacePanel",
+                "CraftingTablePanel",
+                "WorkbenchPanel",
+                "Resources",
+                "FindObjectsOfTypeAll",
+                "IsValid",
+                "Debug",
+                "LogWarning",
                 "OnTriggerEnter",
                 "Collider",
-                "CompareTag",
-                "Player",
-                "OnTriggerExit",
+                "CompareTag"
+            ]
+        },
+        {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\Workbench\\WorkbenchAddon.cs",
+            "fileName": "WorkbenchAddon.cs",
+            "sizeBytes": 643,
+            "lines": 21,
+            "namespace": "",
+            "usings": [
+                "UnityEngine"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "WorkbenchAddon",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "addonName",
+                    "type": "]\r\n    public string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "relatedWorkbenchLevel",
+                    "type": "]\r\n    public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "detectionRadius",
+                    "type": "]\r\n    public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 1,
+            "unityMethods": [],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using UnityEngine;",
+            "possibleTypeReferences": [
+                "UnityEngine",
+                "DisallowMultipleComponent",
+                "WorkbenchAddon",
+                "MonoBehaviour",
+                "Tooltip",
+                "ToolShelf",
+                "OnDrawGizmosSelected",
+                "Gizmos",
+                "Color",
+                "DrawWireSphere"
+            ]
+        },
+        {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\Workbench\\WorkbenchRecipeButton.cs",
+            "fileName": "WorkbenchRecipeButton.cs",
+            "sizeBytes": 4008,
+            "lines": 120,
+            "namespace": "",
+            "usings": [
+                "UnityEngine",
+                "UnityEngine.UI",
+                "TMPro"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "WorkbenchRecipeButton",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "TMPro",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "workbench",
+                    "type": "]\r\n    public Workbench",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "workbenchType",
+                    "type": "public Workbench.WorkbenchType",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "recipeIndex",
+                    "type": "public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "icon",
+                    "type": "public Image",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "descriptionText",
+                    "type": "public TMP_Text",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "resourcesText",
+                    "type": "public TMP_Text",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "progressImage",
+                    "type": "public Image",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "button",
+                    "type": "private Button",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "button",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "progObj",
+                    "type": "GameObject",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "progressImage",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "workbench",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "recipe",
+                    "type": "var",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "available",
+                    "type": "bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "cg",
+                    "type": "CanvasGroup",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "cg",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "resStr",
+                    "type": "string",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 10,
+            "unityMethods": [
+                "Start",
+                "OnEnable",
+                "OnDisable",
+                "Awake"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using UnityEngine;",
+            "possibleTypeReferences": [
+                "UnityEngine",
                 "UI",
-                "CraftItem",
-                "Count",
-                "ContainsKey",
+                "TMPro",
+                "RequireComponent",
+                "Button",
+                "WorkbenchRecipeButton",
+                "MonoBehaviour",
+                "Header",
+                "Workbench",
+                "WorkbenchType",
+                "Default",
+                "Image",
+                "TMP_Text",
+                "Awake",
+                "GetComponent",
+                "FindWorkbench",
+                "GameObject",
+                "ProgressBar",
+                "RectTransform",
+                "SetParent",
+                "Color",
+                "Type",
+                "Filled",
+                "FillMethod",
+                "Horizontal",
+                "Vector2",
+                "SetActive",
+                "Start",
+                "WorkbenchManager",
+                "Instance",
+                "GetWorkbench",
                 "Debug",
                 "Log",
-                "AddItem",
-                "UpdateUI"
+                "LogWarning",
+                "OnEnable",
+                "UpdateVisualState",
+                "AddListener",
+                "OnClickCraft",
+                "OnDisable",
+                "RemoveListener"
+            ]
+        },
+        {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\Workbench\\WorkbenchUpgradeTooltip.cs",
+            "fileName": "WorkbenchUpgradeTooltip.cs",
+            "sizeBytes": 2213,
+            "lines": 70,
+            "namespace": "",
+            "usings": [
+                "UnityEngine",
+                "UnityEngine.UI",
+                "TMPro"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "WorkbenchUpgradeTooltip",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "TMPro",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "workbench",
+                    "type": "public Workbench",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "targetLevel",
+                    "type": "public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "tooltipPanel",
+                    "type": "public GameObject",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "titleText",
+                    "type": "public TextMeshProUGUI",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "requirementsText",
+                    "type": "public TextMeshProUGUI",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "playerInventory",
+                    "type": "public PlayerInventory",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "playerInventory",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "req",
+                    "type": "var",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "text",
+                    "type": "string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "has",
+                    "type": "bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "color",
+                    "type": "string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "found",
+                    "type": "bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "targetName",
+                    "type": "string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "dist",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "found",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "color",
+                    "type": "string",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 5,
+            "unityMethods": [
+                "Start"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using UnityEngine;",
+            "possibleTypeReferences": [
+                "UnityEngine",
+                "UI",
+                "TMPro",
+                "WorkbenchUpgradeTooltip",
+                "MonoBehaviour",
+                "Workbench",
+                "GameObject",
+                "TextMeshProUGUI",
+                "PlayerInventory",
+                "Start",
+                "SetActive",
+                "FindObjectOfType",
+                "ShowTooltip",
+                "Find",
+                "HasResource",
+                "WorkbenchAddon",
+                "FindObjectsOfType",
+                "Vector3",
+                "Distance",
+                "Contains",
+                "HideTooltip"
             ]
         },
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\World\\DayNightCycle.cs",
             "fileName": "DayNightCycle.cs",
-            "sizeBytes": 1950,
-            "lines": 62,
+            "sizeBytes": 4605,
+            "lines": 145,
             "namespace": "",
             "usings": [
                 "UnityEngine",
@@ -4463,19 +5756,19 @@
                     "isSerialized": false
                 },
                 {
-                    "name": "isNight",
-                    "type": "]\r\n    public bool",
+                    "name": "morningEnd",
+                    "type": "]\r\n    public float",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
-                    "name": "nightStart",
+                    "name": "dayEnd",
                     "type": "public float",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
-                    "name": "nightEnd",
+                    "name": "eveningEnd",
                     "type": "public float",
                     "visibility": "private",
                     "isSerialized": false
@@ -4505,20 +5798,104 @@
                     "isSerialized": false
                 },
                 {
-                    "name": "nowNight",
-                    "type": "bool",
+                    "name": "currentPhase",
+                    "type": "public TimeOfDay",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
                     "name": "isNight",
+                    "type": "public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "audioSource",
+                    "type": "]\r\n    public AudioSource",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "morningClip",
+                    "type": "public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "dayClip",
+                    "type": "public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "eveningClip",
+                    "type": "public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "nightClip",
+                    "type": "public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "transitionSpeed",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentClip",
+                    "type": "private AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "targetVolume",
+                    "type": "private float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentTime",
                     "type": "",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
-                    "name": "isNight",
+                    "name": "newPhase",
+                    "type": "TimeOfDay",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentPhase",
                     "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "nextClip",
+                    "type": "AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "yield return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentClip",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "yield return",
                     "visibility": "private",
                     "isSerialized": false
                 }
@@ -4526,7 +5903,7 @@
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 4,
+            "methodsCount": 13,
             "unityMethods": [
                 "Update"
             ],
@@ -4543,20 +5920,270 @@
                 "Light",
                 "Gradient",
                 "AnimationCurve",
+                "Tooltip",
                 "UI",
                 "TextMeshProUGUI",
                 "CycleEvent",
                 "OnNightStart",
                 "OnDayStart",
+                "TimeOfDay",
+                "Morning",
+                "Day",
+                "Evening",
+                "Night",
+                "AudioSource",
+                "AudioClip",
                 "Update",
                 "Time",
                 "Evaluate",
                 "Quaternion",
                 "Euler",
                 "Vector3",
+                "DeterminePhase",
+                "HandlePhaseChange",
+                "Mathf",
+                "MoveTowards",
                 "Invoke",
                 "Debug",
-                "Log"
+                "Log",
+                "PlayPhaseMusic",
+                "StartCoroutine",
+                "FadeToClip",
+                "System",
+                "Collections"
+            ]
+        },
+        {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\World\\DoorController.cs",
+            "fileName": "DoorController.cs",
+            "sizeBytes": 3359,
+            "lines": 131,
+            "namespace": "",
+            "usings": [
+                "System.Collections",
+                "UnityEngine",
+                "UnityEngine.Events"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "DoorController",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "player",
+                    "type": "]\r\n    public Transform",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "openRadius",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "animator",
+                    "type": "]\r\n    public Animator",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "openTrigger",
+                    "type": "public string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "closeTrigger",
+                    "type": "public string",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "OnOpenDoor",
+                    "type": "public UnityEvent",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "OnCloseDoor",
+                    "type": "public UnityEvent",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "openSound",
+                    "type": "]\r\n    public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "closeSound",
+                    "type": "public AudioClip",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "audioSource",
+                    "type": "private AudioSource",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "closeDelay",
+                    "type": "]\r\n    public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "lockWhileAnimating",
+                    "type": "]\r\n    public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "isOpen",
+                    "type": "bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "isLocked",
+                    "type": "bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "closeCoroutine",
+                    "type": "Coroutine",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "audioSource",
+                    "type": "AudioSource",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "audioSource",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "foundPlayer",
+                    "type": "GameObject",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "player",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "distance",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "closeCoroutine",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "closeCoroutine",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "isOpen",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "isOpen",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "closeCoroutine",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 12,
+            "unityMethods": [
+                "Update",
+                "Awake"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using System.Collections;",
+            "possibleTypeReferences": [
+                "System",
+                "Collections",
+                "UnityEngine",
+                "Events",
+                "DoorController",
+                "MonoBehaviour",
+                "Header",
+                "Player",
+                "Transform",
+                "Animation",
+                "Actions",
+                "Animator",
+                "Open",
+                "Close",
+                "UnityEvent",
+                "OnOpenDoor",
+                "OnCloseDoor",
+                "Audio",
+                "AudioClip",
+                "AudioSource",
+                "Auto",
+                "Misc",
+                "Coroutine",
+                "Awake",
+                "GetComponent",
+                "AddComponent",
+                "GameObject",
+                "FindGameObjectWithTag",
+                "Debug",
+                "LogWarning",
+                "Update",
+                "Vector3",
+                "Distance",
+                "StopCoroutine",
+                "StartCoroutine",
+                "AutoCloseCoroutine",
+                "ResetTrigger",
+                "SetTrigger",
+                "Invoke",
+                "PlayOneShot"
             ]
         },
         {
@@ -5126,8 +6753,8 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Craft\\Craftworld\\DragPlaceableItem.cs",
             "fileName": "DragPlaceableItem.cs",
-            "sizeBytes": 7294,
-            "lines": 210,
+            "sizeBytes": 5724,
+            "lines": 188,
             "namespace": "",
             "usings": [
                 "UnityEngine",
@@ -5164,13 +6791,31 @@
                 },
                 {
                     "name": "placeDistance",
-                    "type": "raycast\r\n    public float",
+                    "type": "public float",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
                     "name": "groundLayer",
                     "type": "public LayerMask",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "enableGridSnap",
+                    "type": "]\r\n    public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "snapSize",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "rotationStep",
+                    "type": "]\r\n    public float",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -5229,67 +6874,19 @@
                     "isSerialized": false
                 },
                 {
-                    "name": "foundIndex",
-                    "type": "int",
+                    "name": "pos",
+                    "type": "Vector3",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
-                    "name": "invItem",
-                    "type": "Item",
+                    "name": "currentY",
+                    "type": "float",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
                     "name": "i",
-                    "type": "int",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "it",
-                    "type": "Item",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "foundIndex",
-                    "type": "",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "invItem",
-                    "type": "",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "break",
-                    "type": "",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "foundIndex",
-                    "type": "",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "invItem",
-                    "type": "",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "break",
-                    "type": "",
-                    "visibility": "private",
-                    "isSerialized": false
-                },
-                {
-                    "name": "idx",
                     "type": "int",
                     "visibility": "private",
                     "isSerialized": false
@@ -5358,7 +6955,7 @@
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 19,
+            "methodsCount": 15,
             "unityMethods": [
                 "Start",
                 "Update"
@@ -5379,7 +6976,6 @@
                 "GameObject",
                 "Start",
                 "FindObjectOfType",
-                "InventorySlot",
                 "BeginPlace",
                 "Instantiate",
                 "SetGhostMaterial",
@@ -5393,27 +6989,28 @@
                 "Physics",
                 "Raycast",
                 "RaycastHit",
-                "Quaternion",
-                "GetKey",
-                "KeyCode",
-                "Rotate",
                 "Vector3",
-                "Time",
+                "Mathf",
+                "Round",
+                "GetKeyDown",
+                "KeyCode",
+                "Approximately",
+                "Repeat",
+                "Quaternion",
+                "Euler",
                 "GetMouseButtonDown",
                 "PlaceItem",
-                "ESC",
-                "GetKeyDown",
                 "Escape",
                 "CancelPlacement",
-                "ItemData",
-                "Count"
+                "Remove",
+                "Length"
             ]
         },
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Craft\\Craftworld\\PlaceableItem.cs",
             "fileName": "PlaceableItem.cs",
-            "sizeBytes": 1446,
-            "lines": 45,
+            "sizeBytes": 1325,
+            "lines": 43,
             "namespace": "",
             "usings": [
                 "UnityEngine"
@@ -5527,8 +7124,8 @@
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Craft\\Craftworld\\PlaceableItemManager.cs",
             "fileName": "PlaceableItemManager.cs",
-            "sizeBytes": 2044,
-            "lines": 62,
+            "sizeBytes": 1724,
+            "lines": 54,
             "namespace": "",
             "usings": [
                 "UnityEngine"
@@ -5644,15 +7241,413 @@
                 "Remove",
                 "Length",
                 "IndexOf",
-                "UI",
                 "UpdateUI"
+            ]
+        },
+        {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\Craft\\Craftworld\\WorkbenchManager.cs",
+            "fileName": "WorkbenchManager.cs",
+            "sizeBytes": 1233,
+            "lines": 50,
+            "namespace": "",
+            "usings": [
+                "System.Collections.Generic",
+                "UnityEngine"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "WorkbenchManager",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "set",
+                    "type": "private",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "allWorkbenches",
+                    "type": "private List<Workbench>",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "Instance",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "wb",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "wb",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "return",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 7,
+            "unityMethods": [
+                "Awake"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using System.Collections.Generic;",
+            "possibleTypeReferences": [
+                "System",
+                "Collections",
+                "Generic",
+                "UnityEngine",
+                "WorkbenchManager",
+                "MonoBehaviour",
+                "Instance",
+                "List",
+                "Workbench",
+                "Awake",
+                "Destroy",
+                "RegisterWorkbench",
+                "Contains",
+                "Add",
+                "UnregisterWorkbench",
+                "Remove",
+                "GetWorkbench",
+                "WorkbenchType",
+                "Count"
+            ]
+        },
+        {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\Player\\Destroi postoek\\BuildingDestructible.cs",
+            "fileName": "BuildingDestructible.cs",
+            "sizeBytes": 4567,
+            "lines": 159,
+            "namespace": "",
+            "usings": [
+                "UnityEngine",
+                "System.Collections"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "BuildingDestructible",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "maxHealth",
+                    "type": "]\r\n    public int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "[SerializeField] int",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "intactSprite",
+                    "type": "]\r\n    public Sprite",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "damagedSprite",
+                    "type": "public Sprite",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "destroyedSprite",
+                    "type": "public Sprite",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "destroyGameObjectOnZero",
+                    "type": "]\r\n    public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "ruinPrefab",
+                    "type": "0\r\n    public GameObject",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "disableCollidersOnDestroyed",
+                    "type": "public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "fadeOutSeconds",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "enableShake",
+                    "type": "]\r\n    public bool",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "shakeDuration",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "shakeMagnitude",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "sr",
+                    "type": "SpriteRenderer",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "col",
+                    "type": "Collider",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "col2D",
+                    "type": "Collider2D",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "originalPos",
+                    "type": "Vector3",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "shakeRoutine",
+                    "type": "Coroutine",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "sr",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "col",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "col2D",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "originalPos",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "shakeRoutine",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "ratio",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "return",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "start",
+                    "type": "Color",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "t",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "a",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "yield return",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentHealth",
+                    "type": ">",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "elapsed",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "x",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "y",
+                    "type": "float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "null",
+                    "type": "yield return",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 16,
+            "unityMethods": [
+                "Awake"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using UnityEngine;",
+            "possibleTypeReferences": [
+                "UnityEngine",
+                "System",
+                "Collections",
+                "RequireComponent",
+                "SpriteRenderer",
+                "BuildingDestructible",
+                "MonoBehaviour",
+                "Header",
+                "Health",
+                "SerializeField",
+                "Sprites",
+                "Sprite",
+                "Options",
+                "Destroy",
+                "GameObject",
+                "Shake",
+                "Collider",
+                "Collider2D",
+                "Vector3",
+                "Coroutine",
+                "Awake",
+                "Mathf",
+                "Clamp",
+                "GetComponent",
+                "TakeDamage",
+                "Max",
+                "UpdateVisualState",
+                "StopCoroutine",
+                "StartCoroutine",
+                "OnDestroyed",
+                "Instantiate",
+                "FadeAndDestroy",
+                "IEnumerator",
+                "Color",
+                "Time",
+                "Lerp",
+                "Repair",
+                "GetCurrentHealth",
+                "Random",
+                "Range"
             ]
         },
         {
             "path": "C:/VR/99 Night/Assets\\Scripts\\Player\\HUD stats\\CircularHUDController.cs",
             "fileName": "CircularHUDController.cs",
-            "sizeBytes": 4768,
-            "lines": 143,
+            "sizeBytes": 5091,
+            "lines": 152,
             "namespace": "",
             "usings": [
                 "UnityEngine",
@@ -5876,7 +7871,7 @@
                 },
                 {
                     "name": "timePercent",
-                    "type": "1\r\n        float",
+                    "type": "float",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -5887,14 +7882,32 @@
                     "isSerialized": false
                 },
                 {
-                    "name": "angle",
+                    "name": "targetRotation",
+                    "type": "Quaternion",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
                     "type": "",
                     "visibility": "private",
                     "isSerialized": false
                 },
                 {
-                    "name": "targetRotation",
-                    "type": "Quaternion",
+                    "name": "break",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "break",
+                    "type": "",
                     "visibility": "private",
                     "isSerialized": false
                 },
@@ -5920,7 +7933,7 @@
             "publicFields": [],
             "serializedPrivateFields": [],
             "propertiesCount": 0,
-            "methodsCount": 7,
+            "methodsCount": 9,
             "unityMethods": [
                 "Update",
                 "Awake"
@@ -5956,7 +7969,111 @@
                 "Euler",
                 "Lerp",
                 "Time",
+                "TimeOfDay",
+                "Morning",
+                "Day",
+                "Evening",
+                "Night",
                 "Sin"
+            ]
+        },
+        {
+            "path": "C:/VR/99 Night/Assets\\Scripts\\World\\Fog\\FogOfWarZone.cs",
+            "fileName": "FogOfWarZone.cs",
+            "sizeBytes": 982,
+            "lines": 40,
+            "namespace": "",
+            "usings": [
+                "UnityEngine"
+            ],
+            "classes": [
+                {
+                    "visibility": "public",
+                    "kind": "class",
+                    "name": "FogOfWarZone",
+                    "baseTypes": [
+                        "MonoBehaviour"
+                    ]
+                }
+            ],
+            "allFields": [
+                {
+                    "name": "UnityEngine",
+                    "type": "using",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "fogMaterial",
+                    "type": "]\r\n    public Material",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentVisibleRadius",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "targetVisibleRadius",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "maxRadius",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "revealSpeed",
+                    "type": "public float",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "currentVisibleRadius",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                },
+                {
+                    "name": "targetVisibleRadius",
+                    "type": "",
+                    "visibility": "private",
+                    "isSerialized": false
+                }
+            ],
+            "publicFields": [],
+            "serializedPrivateFields": [],
+            "propertiesCount": 0,
+            "methodsCount": 6,
+            "unityMethods": [
+                "Start",
+                "Update"
+            ],
+            "todos": [],
+            "typeHint": "MonoBehaviour",
+            "summary": "using UnityEngine;",
+            "possibleTypeReferences": [
+                "UnityEngine",
+                "FogOfWarZone",
+                "MonoBehaviour",
+                "Header",
+                "Shader",
+                "Material",
+                "Start",
+                "UpdateShader",
+                "Update",
+                "Mathf",
+                "Lerp",
+                "Time",
+                "ExpandFog",
+                "Clamp",
+                "SetVector",
+                "SetFloat"
             ]
         },
         {

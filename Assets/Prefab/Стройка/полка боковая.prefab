@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 7965081275868927686}
   - component: {fileID: 7716550114524516207}
   - component: {fileID: -9183373858862479917}
-  m_Layer: 0
+  - component: {fileID: 8975506231766177011}
+  - component: {fileID: -3421023107765321674}
+  m_Layer: 3
   m_Name: "\u043F\u043E\u043B\u043A\u0430 \u0431\u043E\u043A\u043E\u0432\u0430\u044F"
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3844435730134350923}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7965081275868927686
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,3 +124,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.19, y: 1.52, z: 0.2}
   m_Center: {x: 0, y: 0.76, z: 0}
+--- !u!114 &8975506231766177011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844435730134350923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46c860f05408a343b002f78fb4e59bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  intactSprite: {fileID: 0}
+  damagedSprite: {fileID: 0}
+  destroyedSprite: {fileID: 0}
+  destroyGameObjectOnZero: 1
+  ruinPrefab: {fileID: 0}
+  disableCollidersOnDestroyed: 1
+  fadeOutSeconds: 6
+--- !u!114 &-3421023107765321674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844435730134350923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d636e25422ce4ae4fb38d63a893fc00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  isBuilding: 1
+  buildingDestructible: {fileID: 8975506231766177011}

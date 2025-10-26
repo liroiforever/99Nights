@@ -21,7 +21,6 @@ public class PlaceableItem : MonoBehaviour
     {
         if (itemData == null || itemData.placeablePrefab == null || inventory == null) return;
 
-        // Проверяем наличие предмета в инвентаре
         Item selectedItem = inventory.inventory.Find(i => i.data == itemData);
         if (selectedItem == null || selectedItem.amount <= 0)
         {
@@ -29,11 +28,9 @@ public class PlaceableItem : MonoBehaviour
             return;
         }
 
-        // Позиция спавна
         Vector3 spawnPos = player.position + player.forward * placeDistance;
         Instantiate(itemData.placeablePrefab, spawnPos, Quaternion.identity);
 
-        // Уменьшаем количество в инвентаре
         selectedItem.amount--;
         if (selectedItem.amount <= 0)
             inventory.inventory.Remove(selectedItem);
@@ -41,4 +38,5 @@ public class PlaceableItem : MonoBehaviour
         inventory.UpdateUI();
         Debug.Log($"Размещен {itemData.itemName} на сцене");
     }
+
 }

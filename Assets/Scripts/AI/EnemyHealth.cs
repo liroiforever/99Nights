@@ -8,14 +8,34 @@ public class EnemyHealth : MonoBehaviour
 
     private EnemyAI enemyAI;
 
+    // --- ДОБАВЛЕНО ---
+    [Header("Если объект — постройка")]
+    public bool isBuilding = false;
+    public BuildingDestructible buildingDestructible;
+    // ------------------
+
     void Awake()
     {
         enemyAI = GetComponent<EnemyAI>();
+
+        // --- ДОБАВЛЕНО ---
+        if (isBuilding && buildingDestructible == null)
+            buildingDestructible = GetComponent<BuildingDestructible>();
+        // ------------------
     }
 
     void OnEnable()
     {
         currentHealth = maxHealth;
+
+        // --- ДОБАВЛЕНО ---
+        if (isBuilding && buildingDestructible != null)
+        {
+            buildingDestructible.Repair(maxHealth);
+            return; // у строений не нужно активировать EnemyAI
+        }
+        // ------------------
+
         if (enemyAI != null)
             enemyAI.isActive = true;
     }
@@ -23,13 +43,30 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+
+        // --- ДОБАВЛЕНО ---
+        if (isBuilding && buildingDestructible != null)
+        {
+            buildingDestructible.TakeDamage(amount);
+        }
+        // ------------------
+
         if (currentHealth <= 0)
             Die();
     }
 
     void Die()
     {
+        if (isBuilding)
+        {
+            // у строений — свой способ "смерти"
+            if (buildingDestructible != null)
+                buildingDestructible.TakeDamage(maxHealth); // добиваем
+            return;
+        }
+
         Debug.Log($"{gameObject.name} убит!");
+
         if (enemyAI != null)
             enemyAI.isActive = false;
 

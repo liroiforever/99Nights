@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f4f15b1d1200343967db9a503350e3, type: 3}
   m_Name: "\u0421\u0442\u0435\u043D\u0430 \u0434\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u0430\u044F"
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: d5fe79c33eeab314b9e2db42e009da35, type: 2}
   requirements:
   - resourceType: Wood
     amount: 10
-  craftTime: 0
+  craftTime: 10
